@@ -29,4 +29,5 @@ INSERT INTO
   book (title, publisher_id, released)
 VALUES
   ('Harry Potter', '1', 1999),
-  ('Lord of the Rings', '2', 1965);
+  ('Lord of the Rings', '2', 1965),
+  ('Harry Potter 3', '1', 2003);
