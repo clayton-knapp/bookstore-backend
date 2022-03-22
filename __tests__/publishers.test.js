@@ -2,7 +2,7 @@ const pool = require('../lib/utils/pool');
 const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
-const Publisher = require('../lib/models/Publisher');
+// const Publisher = require('../lib/models/Publisher');
 
 describe('bookstore-backend routes', () => {
   beforeEach(() => {
@@ -31,6 +31,14 @@ describe('bookstore-backend routes', () => {
     const expected = [{ id: '1', name: 'Random House' }, { id: '2', name: 'Penguin' }];
 
     const res = await request(app).get('/api/v1/publisher');
+
+    expect(res.body).toEqual(expected);
+  });
+
+  it('gets publisher by id', async () => {
+    const expected = { id: expect.any(String), name: 'Random House', city: 'New York City', state: 'NY', country: 'USA', books: [{ id: '1', title:'Harry Potter' }] };
+
+    const res = await request(app).get(`/api/v1/publisher/${expected.id}`);
 
     expect(res.body).toEqual(expected);
   });
