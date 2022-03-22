@@ -2,7 +2,7 @@ const pool = require('../lib/utils/pool');
 const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
-const Publisher = require('../lib/models/Publisher');
+// const Publisher = require('../lib/models/Publisher');
 
 describe('bookstore-backend routes', () => {
   beforeEach(() => {
@@ -34,4 +34,6 @@ describe('bookstore-backend routes', () => {
 
     expect(res.body).toEqual(expected);
   });
+
+  
 });
