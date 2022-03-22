@@ -21,7 +21,7 @@ VALUES
 CREATE TABLE book(
   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY, 
   title TEXT NOT NULL,
-  publisher_id INT NOT NULL, FOREIGN KEY (publisher_id) REFERENCES publisher(id),
+  publisher_id BIGINT NOT NULL, FOREIGN KEY (publisher_id) REFERENCES publisher(id),
   released INT NOT NULL
 );
 
