@@ -42,13 +42,13 @@ VALUES
    pob TEXT 
   );
 
-  INSERT INTO
-  author (name, dob, pob)
-  VALUES
-  ('JK Rowling', '1965-07-31', 'Yate, England'),
-   ('JRR Tolken', '1892-01-03', 'Bloemfontein, South Africa');
+  CREATE TABLE reviewer(
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY, 
+  name TEXT NOT NULL,
+  company TEXT NOT NULL
+);
 
-   CREATE TABLE review(
+ CREATE TABLE review(
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY, 
     rating INT NOT NULL,
     reviewer_id BIGINT NOT NULL, FOREIGN KEY (reviewer_id) REFERENCES reviewer(id),
@@ -56,17 +56,17 @@ VALUES
     book_id BIGINT NOT NULL, FOREIGN KEY (book_id) REFERENCES book(id)
    );
 
-   INSERT INTO review 
-   (rating, reviewer_id, review, book_id)
-   VALUES
-   (5, '1', 'good book', '1'),
-    (3, '2', 'bad book', '2');
-
-CREATE TABLE reviewer(
-  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY, 
-  name TEXT NOT NULL,
-  company TEXT NOT NULL
+ CREATE TABLE author_book(
+   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY, 
+   author_id BIGINT REFERENCES author(id),
+   book_id BIGINT REFERENCES book(id)
 );
+
+INSERT INTO
+  author (name, dob, pob)
+  VALUES
+  ('JK Rowling', '1965-07-31', 'Yate, England'),
+   ('JRR Tolken', '1892-01-03', 'Bloemfontein, South Africa');
 
 INSERT INTO reviewer
 (name, company)
@@ -74,11 +74,11 @@ VALUES
 ('bob', 'Nike'),
 ('zeus', 'addidas');
 
-CREATE TABLE author_book(
-   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY, 
-   author_id BIGINT NOT NULL,
-   book_id BIGINT NOT NULL
-);
+ INSERT INTO review 
+   (rating, reviewer_id, review, book_id)
+   VALUES
+   (5, '1', 'good book', '1'),
+    (3, '2', 'bad book', '2');
 
 INSERT INTO author_book
 (author_id, book_id)
