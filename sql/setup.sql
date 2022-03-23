@@ -68,11 +68,24 @@ CREATE TABLE reviewer(
   company TEXT NOT NULL
 );
 
-INSERT INTO
+INSERT INTO reviewer
 (name, company)
 VALUES
 ('bob', 'Nike'),
 ('zeus', 'addidas');
+
+CREATE TABLE author_book(
+   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY, 
+   author_id BIGINT NOT NULL,
+   book_id BIGINT NOT NULL
+);
+
+INSERT INTO author_book
+(author_id, book_id)
+VALUES
+('1', '1'),
+('2', '2'),
+('1', '3');
 
    
    
