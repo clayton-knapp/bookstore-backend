@@ -23,12 +23,12 @@ describe('bookstore-backend routes', () => {
 
     const res = await request(app).post('/api/v1/publisher').send(expected);
 
-    expect(res.body).toEqual({ id: expect.any(String), ...expected });
+    expect(res.body).toEqual({ publisherId: expect.any(String), ...expected });
 
   });
 
   it('gets all publishers', async () => {
-    const expected = [{ id: '1', name: 'Random House' }, { id: '2', name: 'Penguin' }];
+    const expected = [{ publisherId: '1', name: 'Random House' }, { publisherId: '2', name: 'Penguin' }];
 
     const res = await request(app).get('/api/v1/publisher');
 
@@ -36,7 +36,7 @@ describe('bookstore-backend routes', () => {
   });
 
   it('gets publisher by id', async () => {
-    const expected = { id: expect.any(String), name: 'Random House', city: 'New York City', state: 'NY', country: 'USA', books: [{ id: '1', title:'Harry Potter' }, { id: '3', title:'Harry Potter 3' }] };
+    const expected = { publisherId: expect.any(String), name: 'Random House', city: 'New York City', state: 'NY', country: 'USA', books: [{ bookId: '1', title:'Harry Potter' }, { bookId: '3', title:'Harry Potter 3' }] };
 
     const res = await request(app).get('/api/v1/publisher/1');
 
