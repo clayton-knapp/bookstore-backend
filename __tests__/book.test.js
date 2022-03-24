@@ -52,5 +52,33 @@ describe('bookstore-backend routes', () => {
 
     expect(res.body).toEqual(expected);
   });
+
+  it('gets a book by id', async () => {
+    const expected = {
+      title: 'Harry Potter',
+      released: 1999,
+      publisher: {
+        id: '1',
+        name: 'Random House'
+      },
+      author: [{
+        id: '1',
+        name: 'JK Rowling'
+      }],
+      reviews: [{
+        id: '1',
+        rating: 5,
+        review: 'good book',
+        reviewer: {
+          id: '1',
+          name: 'bob'
+        }
+      }]
+    };
+
+    const res = await request(app).get('/api/v1/book/1');
+
+    expect(res.body).toEqual(expected);
+  });
 });
 
