@@ -69,7 +69,8 @@ INSERT INTO author
   (name, dob, pob)
 VALUES
   ('JK Rowling', '1965-07-31', 'Yate, England'),
-  ('JRR Tolken', '1892-01-03', 'Bloemfontein, South Africa');
+  ('JRR Tolken', '1892-01-03', 'Bloemfontein, South Africa'),
+  ('Cliff', '2000-01-01', 'PartyCity');
 
 INSERT INTO reviewer
   (name, company)
@@ -88,4 +89,5 @@ INSERT INTO author_book
 VALUES
 ('1', '1'),
 ('2', '2'),
-('1', '3');
+('1', '3'),
+('3', '1');

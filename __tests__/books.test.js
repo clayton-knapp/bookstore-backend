@@ -70,19 +70,25 @@ describe('bookstore-backend routes', () => {
         publisherId: '1',
         name: 'Random House'
       },
-      author: [{
-        authorId: '1',
-        name: 'JK Rowling'
-      }],
-      reviews: [{
-        reviewId: '1',
-        rating: 5,
-        review: 'good book',
-        reviewer: {
-          reviewerId: '1',
-          name: 'bob'
+      author: [
+        {
+          authorId: '1',
+          name: 'JK Rowling'
+        },
+        {
+          authorId: '3',
+          name: 'Cliff'
         }
-      }]
+      ],
+      // reviews: [{
+      //   reviewId: '1',
+      //   rating: 5,
+      //   review: 'good book',
+      //   reviewer: {
+      //     reviewerId: '1',
+      //     name: 'bob'
+      //   }
+      // }]
     };
 
     const res = await request(app).get('/api/v1/book/1');
