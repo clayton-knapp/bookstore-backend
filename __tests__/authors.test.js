@@ -45,4 +45,14 @@ describe('bookstore-backend routes', () => {
     const res = await request(app).get('/api/v1/author/1');
     expect(res.body).toEqual(expected);
   });
+  it('creates and author ', async () => {
+    const expected = {
+      authorId: expect.any(String),
+      name: 'Colleen Hoover',
+      dob: '7/20/1985',
+      pob: 'Portland, USA'
+    };
+    const res = await request(app).post('/api/v1/author').send(expected);
+    expect(res.body).toEqual(expected);
+  });
 });
