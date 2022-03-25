@@ -47,7 +47,7 @@ CREATE TABLE author(
     );
 
   CREATE TABLE author_book(
-    author_book_id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY, 
+    -- author_book_id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY, 
     author_id BIGINT REFERENCES author(author_id),
     book_id BIGINT REFERENCES book(book_id)
 );
