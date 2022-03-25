@@ -47,4 +47,21 @@ describe('bookstore-backend routes', () => {
     expect(res.body).toEqual(expected);
   });
 
+  it('gets all reviewers', async () => {
+    const expected = [{
+      name: 'bob',
+      company:'Nike',
+      reviewerId:'1'
+    },
+    {
+      name:'zeus',
+      company:'addidas',
+      reviewerId:'2'
+    }];
+    const res = await request(app).get('/api/v1/reviewer');
+    expect(res.body).toEqual(expected);
+  });
+
+
+
 });
