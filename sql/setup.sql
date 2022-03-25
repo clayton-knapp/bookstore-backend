@@ -82,6 +82,7 @@ INSERT INTO review
   (rating, reviewer_id, review, book_id)
 VALUES
   (5, '1', 'good book', '1'),
+  (4, '2', 'meh', '1'),
   (3, '2', 'bad book', '2');
 
 INSERT INTO author_book
