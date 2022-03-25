@@ -80,15 +80,23 @@ describe('bookstore-backend routes', () => {
           name: 'Cliff'
         }
       ],
-      // reviews: [{
-      //   reviewId: '1',
-      //   rating: 5,
-      //   review: 'good book',
-      //   reviewer: {
-      //     reviewerId: '1',
-      //     name: 'bob'
-      //   }
-      // }]
+      reviews: [{
+        reviewId: '1',
+        rating: 5,
+        review: 'good book',
+        reviewer: {
+          reviewerId: '1',
+          name: 'bob'
+        }
+      }, {
+        reviewId: '2',
+        rating: 4,
+        review: 'meh',
+        reviewer: {
+          reviewerId: '2',
+          name: 'zeus'
+        } 
+      }]
     };
 
     const res = await request(app).get('/api/v1/book/1');
