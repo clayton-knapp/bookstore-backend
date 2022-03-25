@@ -74,7 +74,8 @@ describe('bookstore-backend routes', () => {
     // const expected = 404;
 
     const res = await request(app).delete('/api/v1/reviewer/1');
-    expect(res.body).toEqual('Cannot delete');
+    // console.log('rebody****', res.body);
+    expect(res.body.message).toEqual('Cannot delete reviews with a review');
   });
 
 
