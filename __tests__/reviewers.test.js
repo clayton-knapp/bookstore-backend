@@ -2,6 +2,7 @@ const pool = require('../lib/utils/pool');
 const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
+const Reviewer = require('../lib/models/Reviewer');
 
 describe('bookstore-backend routes', () => {
   beforeEach(() => {
@@ -62,6 +63,12 @@ describe('bookstore-backend routes', () => {
     expect(res.body).toEqual(expected);
   });
 
+  it ('deletes a reviewer only if they have no reviews', async () => {
+    const expected = await Reviewer.insert({ reviewerId:'3', name:'Clayton', company:'ClayAndBrosCo' });
+
+    const res = await request(app).delete('/api/v1/reviewer/3');
+    expect(res.body).toEqual(expected);
+  });
 
 
 });
