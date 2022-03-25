@@ -64,6 +64,21 @@ describe('bookstore-backend routes', () => {
 
   });
 
+  it('deletes a review by id', async () => {
+    const expected = {
+      reviewId: '1',
+      rating: 5,
+      review: 'good book',
+      bookId: '1',
+      reviewerId: expect.any(String)
+    };
+
+    const res = await request(app).delete('/api/v1/review/1');
+
+    expect(res.body).toEqual(expected);
+
+  });
+
 
 
 });

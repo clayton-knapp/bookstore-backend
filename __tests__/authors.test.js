@@ -45,7 +45,8 @@ describe('bookstore-backend routes', () => {
     const res = await request(app).get('/api/v1/author/1');
     expect(res.body).toEqual(expected);
   });
-  it('creates and author ', async () => {
+
+  it('creates an author ', async () => {
     const expected = {
       authorId: expect.any(String),
       name: 'Colleen Hoover',
