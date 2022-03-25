@@ -30,14 +30,14 @@ describe('bookstore-backend routes', () => {
       company: 'Nike',
       reviews: [{ 
         reviewId: '1',
-        rating:'5',
+        rating:5,
         review: 'good book',
         bookId: '1',
         title: 'Harry Potter'
       },
       {
-        reviewId: '1',
-        rating:'2',
+        reviewId: '2',
+        rating:2,
         review: 'somewhat good',
         bookId: '2',
         title:'Lord of the Rings'
