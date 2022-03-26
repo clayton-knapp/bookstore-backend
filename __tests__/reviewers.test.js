@@ -58,15 +58,20 @@ describe('bookstore-backend routes', () => {
       name:'zeus',
       company:'addidas',
       reviewerId:'2'
+    },
+    {
+      company: 'somewhere',
+      name: 'no review guy',
+      reviewerId: '3',
     }];
     const res = await request(app).get('/api/v1/reviewer');
     expect(res.body).toEqual(expected);
   });
 
   it ('deletes a reviewer only if they have no reviews', async () => {
-    const expected = await Reviewer.insert({ reviewerId:'3', name:'Clayton', company:'ClayAndBrosCo' });
+    const expected = await Reviewer.insert({ reviewerId:'4', name:'Clayton', company:'ClayAndBrosCo' });
 
-    const res = await request(app).delete('/api/v1/reviewer/3');
+    const res = await request(app).delete('/api/v1/reviewer/4');
     expect(res.body).toEqual(expected);
   });
 
