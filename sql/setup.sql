@@ -76,7 +76,8 @@ INSERT INTO reviewer
   (name, company)
 VALUES
   ('bob', 'Nike'),
-  ('zeus', 'addidas');
+  ('zeus', 'addidas'),
+  ('no review guy', 'somewhere');
 
 INSERT INTO review 
   (rating, reviewer_id, review, book_id)
