@@ -70,5 +70,33 @@ describe('bookstore-backend routes', () => {
     expect(res.body).toEqual(expected);
   });
 
+  it ('tries to delete a reviewer with reviews', async () => {
+    // const expected = 404;
+
+    const res = await request(app).delete('/api/v1/reviewer/1');
+    // console.log('rebody****', res.body);
+    expect(res.body.message).toEqual('Cannot delete reviews with a review');
+  });
+
+  it('updates a reviewer by id', async () => {
+    const expected = {
+      name: 'Jimbo',
+      company:'Nike',
+      reviewerId:'1'
+    };
+
+    const res = await request(app)
+      .patch('/api/v1/reviewer/1')
+      .send(
+        { 
+          name: 'Jimbo', 
+          // company: 'Fred Meyer' 
+        }
+      );
+
+    expect(res.body).toEqual(expected);
+
+  });
+
 
 });
