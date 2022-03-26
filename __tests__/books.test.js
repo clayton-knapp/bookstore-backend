@@ -89,7 +89,7 @@ describe('bookstore-backend routes', () => {
           name: 'bob'
         }
       }, {
-        reviewId: '2',
+        reviewId: '3',
         rating: 4,
         review: 'meh',
         reviewer: {
